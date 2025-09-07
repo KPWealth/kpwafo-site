@@ -1,0 +1,6 @@
+<!-- Family Crest Image Placeholder -->
+<!-- 
+  This is a placeholder for the family crest image.
+  Replace with actual family crest PNG image (120x120px recommended)
+  Current reference in HTML: src="assets/crest.png"
+-->

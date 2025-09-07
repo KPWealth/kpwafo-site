@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120">
+  <defs>
+    <style>
+      .crest-bg { fill: #f6f3ee; }
+      .crest-border { fill: none; stroke: #b8a165; stroke-width: 3; }
+      .crest-text { fill: #1a2235; font-family: 'Merriweather', serif; font-weight: bold; text-anchor: middle; }
+      .crest-accent { fill: #b8a165; }
+    </style>
+  </defs>
+  
+  <!-- Background circle -->
+  <circle cx="60" cy="60" r="57" class="crest-bg"/>
+  
+  <!-- Decorative shield shape -->
+  <path d="M30 35 Q60 25 90 35 L90 65 Q60 85 30 65 Z" class="crest-accent" opacity="0.2"/>
+  
+  <!-- Main text -->
+  <text x="60" y="55" class="crest-text" font-size="20">KP</text>
+  <text x="60" y="75" class="crest-text" font-size="10">WEALTH</text>
+  
+  <!-- Border -->
+  <circle cx="60" cy="60" r="57" class="crest-border"/>
+</svg>
