@@ -1,0 +1,33 @@
+{
+  "name": "kpwafo-site",
+  "version": "1.0.0",
+  "description": "KP Wealth & Family Office - Digital governance and legacy platform",
+  "main": "index.html",
+  "scripts": {
+    "build": "node build/agents/build-agent.js",
+    "dev": "node build/agents/dev-server.js",
+    "validate": "node build/agents/validation-agent.js",
+    "deploy": "node build/agents/deployment-agent.js",
+    "organize": "node build/agents/file-organization-agent.js",
+    "assets": "node build/agents/asset-management-agent.js",
+    "content": "node build/agents/content-generation-agent.js",
+    "all": "npm run organize && npm run content && npm run assets && npm run validate && npm run build"
+  },
+  "keywords": [
+    "family-office",
+    "wealth-management",
+    "private",
+    "legacy"
+  ],
+  "author": "KP Wealth & Family Office",
+  "license": "PRIVATE",
+  "devDependencies": {
+    "chalk": "^4.1.2",
+    "fs-extra": "^11.1.1",
+    "glob": "^10.3.10"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "private": true
+}
