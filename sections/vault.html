@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="KP Vault Access - Secure Family Portal for Documents and Archives">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vault Access | KP Wealth & Family Office</title>
+  <link rel="stylesheet" href="../assets/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="page-header">
+    <nav class="main-nav">
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="charter.html">Family Office Charter</a></li>
+        <li><a href="trusts.html">Trust Architecture</a></li>
+        <li><a href="governance.html">Wealth Governance</a></li>
+        <li><a href="legacy.html">Legacy & Heritage</a></li>
+        <li><a href="vault.html" class="active">Vault Access</a></li>
+      </ul>
+    </nav>
+    
+    <div class="page-hero">
+      <div class="crest-container">
+        <img src="../assets/crest.svg" alt="KP Family Crest" class="crest-small">
+      </div>
+      <h1 class="page-title">Secure Family Vault</h1>
+      <p class="page-subtitle">Protected Access to Confidential Documents & Archives</p>
+    </div>
+  </header>
+
+  <main class="vault-main">
+    <!-- Login Form (Initially Shown) -->
+    <section id="vault-login" class="vault-login">
+      <div class="login-container">
+        <div class="security-notice">
+          <div class="security-icon">🔒</div>
+          <h2>Authorized Access Required</h2>
+          <p>This secure portal provides access to confidential family documents, financial reports, and legal archives. Access is restricted to authorized family members only.</p>
+        </div>
+        
+        <form class="login-form" onsubmit="handleLogin(event)">
+          <div class="form-group">
+            <label for="username">Family Member ID</label>
+            <input type="text" id="username" name="username" required placeholder="Enter your family member ID">
+          </div>
+          
+          <div class="form-group">
+            <label for="password">Secure Password</label>
+            <input type="password" id="password" name="password" required placeholder="Enter your secure password">
+          </div>
+          
+          <div class="form-group">
+            <label for="auth-code">Two-Factor Authentication Code</label>
+            <input type="text" id="auth-code" name="auth-code" required placeholder="Enter 6-digit authentication code" maxlength="6" pattern="[0-9]{6}">
+          </div>
+          
+          <button type="submit" class="login-button">
+            <span class="button-text">Access Vault</span>
+            <span class="button-icon">🔓</span>
+          </button>
+          
+          <div class="login-help">
+            <a href="#" onclick="showRecovery()">Forgot credentials?</a>
+            <span>|</span>
+            <a href="#" onclick="showSupport()">Technical support</a>
+          </div>
+        </form>
+        
+        <div class="security-features">
+          <h3>Security Features</h3>
+          <div class="features-grid">
+            <div class="feature">
+              <span class="feature-icon">🔐</span>
+              <span>256-bit encryption</span>
+            </div>
+            <div class="feature">
+              <span class="feature-icon">🔄</span>
+              <span>Two-factor authentication</span>
+            </div>
+            <div class="feature">
+              <span class="feature-icon">📊</span>
+              <span>Access monitoring</span>
+            </div>
+            <div class="feature">
+              <span class="feature-icon">🛡️</span>
+              <span>Biometric verification</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Vault Dashboard (Hidden Initially) -->
+    <section id="vault-dashboard" class="vault-dashboard" style="display: none;">
+      <div class="dashboard-container">
+        <div class="welcome-header">
+          <h2>Welcome to the Family Vault</h2>
+          <p class="last-access">Last access: <span id="last-access-time">--</span></p>
+          <button class="logout-button" onclick="handleLogout()">Secure Logout</button>
+        </div>
+        
+        <div class="vault-sections">
+          <div class="vault-section">
+            <h3>📄 Trust Documents</h3>
+            <p>Access complete trust documentation, amendments, and governing instruments.</p>
+            <div class="document-list">
+              <div class="document-item">
+                <span class="doc-icon">📋</span>
+                <span class="doc-name">Master Trust Agreement</span>
+                <span class="doc-status">Updated Dec 2024</span>
+                <button class="view-button">View</button>
+              </div>
+              <div class="document-item">
+                <span class="doc-icon">📋</span>
+                <span class="doc-name">Family Trust Documentation</span>
+                <span class="doc-status">Updated Nov 2024</span>
+                <button class="view-button">View</button>
+              </div>
+              <div class="document-item">
+                <span class="doc-icon">📋</span>
+                <span class="doc-name">Operating Trust Structures</span>
+                <span class="doc-status">Updated Oct 2024</span>
+                <button class="view-button">View</button>
+              </div>
+            </div>
+          </div>
+          
+          <div class="vault-section">
+            <h3>💰 Financial Reports</h3>
+            <p>Comprehensive financial statements, performance reports, and investment analysis.</p>
+            <div class="document-list">
+              <div class="document-item">
+                <span class="doc-icon">📊</span>
+                <span class="doc-name">Q4 2024 Performance Report</span>
+                <span class="doc-status">Latest</span>
+                <button class="view-button">View</button>
+              </div>
+              <div class="document-item">
+                <span class="doc-icon">📈</span>
+                <span class="doc-name">Annual Financial Statement 2024</span>
+                <span class="doc-status">Certified</span>
+                <button class="view-button">View</button>
+              </div>
+              <div class="document-item">
+                <span class="doc-icon">📋</span>
+                <span class="doc-name">Asset Allocation Summary</span>
+                <span class="doc-status">Current</span>
+                <button class="view-button">View</button>
+              </div>
+            </div>
+          </div>
+          
+          <div class="vault-section">
+            <h3>⚖️ Legal Archives</h3>
+            <p>Legal documentation, contracts, agreements, and compliance records.</p>
+            <div class="document-list">
+              <div class="document-item">
+                <span class="doc-icon">📑</span>
+                <span class="doc-name">Family Office Charter</span>
+                <span class="doc-status">Version 3.1</span>
+                <button class="view-button">View</button>
+              </div>
+              <div class="document-item">
+                <span class="doc-icon">⚖️</span>
+                <span class="doc-name">Legal Compliance Records</span>
+                <span class="doc-status">Current</span>
+                <button class="view-button">View</button>
+              </div>
+              <div class="document-item">
+                <span class="doc-icon">📋</span>
+                <span class="doc-name">Investment Agreements</span>
+                <span class="doc-status">Active</span>
+                <button class="view-button">View</button>
+              </div>
+            </div>
+          </div>
+          
+          <div class="vault-section">
+            <h3>🏛️ Heritage Collection</h3>
+            <p>Family history, genealogical records, and heritage documentation.</p>
+            <div class="document-list">
+              <div class="document-item">
+                <span class="doc-icon">📚</span>
+                <span class="doc-name">Family History Archives</span>
+                <span class="doc-status">Complete</span>
+                <button class="view-button">View</button>
+              </div>
+              <div class="document-item">
+                <span class="doc-icon">🖼️</span>
+                <span class="doc-name">Heritage Photo Collection</span>
+                <span class="doc-status">Digital</span>
+                <button class="view-button">View</button>
+              </div>
+              <div class="document-item">
+                <span class="doc-icon">📜</span>
+                <span class="doc-name">Genealogical Records</span>
+                <span class="doc-status">Updated</span>
+                <button class="view-button">View</button>
+              </div>
+            </div>
+          </div>
+          
+          <div class="vault-section">
+            <h3>🔐 Access Management</h3>
+            <p>Security settings, access logs, and account management.</p>
+            <div class="access-controls">
+              <div class="control-item">
+                <span class="control-label">Security Level</span>
+                <span class="control-value">Maximum</span>
+              </div>
+              <div class="control-item">
+                <span class="control-label">Two-Factor Auth</span>
+                <span class="control-value status-active">Active</span>
+              </div>
+              <div class="control-item">
+                <span class="control-label">Session Timeout</span>
+                <span class="control-value">30 minutes</span>
+              </div>
+              <div class="control-item">
+                <span class="control-label">Last Security Review</span>
+                <span class="control-value">Dec 15, 2024</span>
+              </div>
+            </div>
+            <button class="access-button">View Access Logs</button>
+            <button class="access-button">Update Security Settings</button>
+          </div>
+          
+          <div class="vault-section">
+            <h3>🔄 Recent Activity</h3>
+            <p>Recent document access and system activity.</p>
+            <div class="activity-log">
+              <div class="activity-item">
+                <span class="activity-time">2 hours ago</span>
+                <span class="activity-action">Viewed Q4 Performance Report</span>
+              </div>
+              <div class="activity-item">
+                <span class="activity-time">1 day ago</span>
+                <span class="activity-action">Updated security settings</span>
+              </div>
+              <div class="activity-item">
+                <span class="activity-time">3 days ago</span>
+                <span class="activity-action">Accessed Trust Documentation</span>
+              </div>
+              <div class="activity-item">
+                <span class="activity-time">1 week ago</span>
+                <span class="activity-action">Downloaded Financial Statement</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-content">
+      <p>&copy; 2024 KP Wealth & Family Office. All rights reserved.</p>
+      <p class="confidentiality-notice">This secure portal is for authorized family members only. All access is monitored and logged.</p>
+    </div>
+  </footer>
+
+  <style>
+    .vault-main {
+      min-height: 70vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .vault-login {
+      padding: 4rem 2rem;
+      background: var(--ivory);
+    }
+
+    .login-container {
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .security-notice {
+      background: white;
+      padding: 3rem;
+      border-radius: 12px;
+      text-align: center;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow-medium);
+      border-top: 6px solid var(--navy);
+    }
+
+    .security-icon {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+    }
+
+    .security-notice h2 {
+      color: var(--navy);
+      margin-bottom: 1rem;
+      font-size: 1.8rem;
+    }
+
+    .security-notice p {
+      color: var(--charcoal);
+      line-height: 1.6;
+    }
+
+    .login-form {
+      background: white;
+      padding: 3rem;
+      border-radius: 12px;
+      box-shadow: var(--shadow-medium);
+      margin-bottom: 2rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: var(--navy);
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 1rem;
+      border: 2px solid #e0e0e0;
+      border-radius: 6px;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+      box-sizing: border-box;
+    }
+
+    .form-group input:focus {
+      outline: none;
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(184, 161, 101, 0.1);
+    }
+
+    .login-button {
+      width: 100%;
+      background: linear-gradient(45deg, var(--navy), #243045);
+      color: var(--ivory);
+      border: none;
+      padding: 1.2rem;
+      border-radius: 6px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .login-button:hover {
+      background: linear-gradient(45deg, #243045, var(--navy));
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-medium);
+    }
+
+    .login-help {
+      text-align: center;
+      margin-top: 1.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #e0e0e0;
+    }
+
+    .login-help a {
+      color: var(--gold);
+      text-decoration: none;
+      font-size: 0.9rem;
+      margin: 0 0.5rem;
+    }
+
+    .login-help a:hover {
+      text-decoration: underline;
+    }
+
+    .security-features {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: var(--shadow-light);
+    }
+
+    .security-features h3 {
+      color: var(--navy);
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+
+    .feature {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.8rem;
+      background: var(--ivory);
+      border-radius: 6px;
+      font-size: 0.9rem;
+    }
+
+    .feature-icon {
+      font-size: 1.2rem;
+    }
+
+    /* Dashboard Styles */
+    .vault-dashboard {
+      padding: 2rem;
+      background: var(--ivory);
+      min-height: 70vh;
+    }
+
+    .dashboard-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .welcome-header {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: var(--shadow-light);
+      margin-bottom: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .welcome-header h2 {
+      color: var(--navy);
+      margin: 0;
+    }
+
+    .last-access {
+      color: var(--charcoal);
+      font-size: 0.9rem;
+    }
+
+    .logout-button {
+      background: var(--gold);
+      color: var(--navy);
+      border: none;
+      padding: 0.8rem 1.5rem;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .logout-button:hover {
+      background: var(--gold-light);
+      transform: translateY(-2px);
+    }
+
+    .vault-sections {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+      gap: 2rem;
+    }
+
+    .vault-section {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: var(--shadow-light);
+      border-top: 4px solid var(--navy);
+    }
+
+    .vault-section h3 {
+      color: var(--navy);
+      margin-bottom: 0.5rem;
+      font-size: 1.3rem;
+    }
+
+    .vault-section p {
+      color: var(--charcoal);
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+    }
+
+    .document-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .document-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem;
+      background: var(--ivory);
+      border-radius: 6px;
+      border-left: 3px solid var(--gold);
+    }
+
+    .doc-icon {
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    .doc-name {
+      flex: 1;
+      font-weight: 500;
+      color: var(--navy);
+    }
+
+    .doc-status {
+      font-size: 0.8rem;
+      color: var(--gold);
+      font-weight: 600;
+    }
+
+    .view-button {
+      background: var(--navy);
+      color: var(--ivory);
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .view-button:hover {
+      background: #243045;
+    }
+
+    .access-controls {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .control-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.8rem;
+      background: var(--ivory);
+      border-radius: 6px;
+    }
+
+    .control-label {
+      font-weight: 500;
+      color: var(--navy);
+    }
+
+    .control-value {
+      color: var(--charcoal);
+      font-size: 0.9rem;
+    }
+
+    .status-active {
+      color: #4CAF50 !important;
+      font-weight: 600;
+    }
+
+    .access-button {
+      background: var(--gold);
+      color: var(--navy);
+      border: none;
+      padding: 0.8rem 1.2rem;
+      border-radius: 6px;
+      margin-right: 0.5rem;
+      margin-bottom: 0.5rem;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .access-button:hover {
+      background: var(--gold-light);
+    }
+
+    .activity-log {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .activity-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.8rem;
+      background: var(--ivory);
+      border-radius: 6px;
+      border-left: 3px solid var(--navy);
+    }
+
+    .activity-time {
+      font-size: 0.8rem;
+      color: var(--gold);
+      font-weight: 600;
+    }
+
+    .activity-action {
+      color: var(--charcoal);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .welcome-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      
+      .vault-sections {
+        grid-template-columns: 1fr;
+      }
+      
+      .document-item, .activity-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+      }
+      
+      .doc-status, .activity-time {
+        align-self: flex-end;
+      }
+    }
+  </style>
+
+  <script>
+    function handleLogin(event) {
+      event.preventDefault();
+      
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+      const authCode = document.getElementById('auth-code').value;
+      
+      // Simple demonstration logic (in real implementation, this would be secure server-side authentication)
+      if (username && password && authCode.length === 6) {
+        // Show loading state
+        const button = event.target.querySelector('.login-button');
+        const originalText = button.innerHTML;
+        button.innerHTML = '<span>Authenticating...</span>';
+        button.disabled = true;
+        
+        // Simulate authentication delay
+        setTimeout(() => {
+          // Hide login form and show dashboard
+          document.getElementById('vault-login').style.display = 'none';
+          document.getElementById('vault-dashboard').style.display = 'block';
+          
+          // Set last access time
+          const now = new Date();
+          document.getElementById('last-access-time').textContent = now.toLocaleString();
+          
+          // Scroll to top
+          window.scrollTo(0, 0);
+        }, 1500);
+      } else {
+        alert('Please fill in all required fields correctly.');
+      }
+    }
+    
+    function handleLogout() {
+      if (confirm('Are you sure you want to logout securely?')) {
+        // Hide dashboard and show login
+        document.getElementById('vault-dashboard').style.display = 'none';
+        document.getElementById('vault-login').style.display = 'block';
+        
+        // Reset form
+        document.querySelector('.login-form').reset();
+        const button = document.querySelector('.login-button');
+        button.innerHTML = '<span class="button-text">Access Vault</span><span class="button-icon">🔓</span>';
+        button.disabled = false;
+        
+        // Scroll to top
+        window.scrollTo(0, 0);
+      }
+    }
+    
+    function showRecovery() {
+      alert('For credential recovery, please contact the Family Office administrator at admin@kpwafo.com or call the secure support line.');
+    }
+    
+    function showSupport() {
+      alert('Technical Support:\n\nSecure Support Line: Available 24/7\nEmail: support@kpwafo.com\nResponse Time: <2 hours for family members');
+    }
+    
+    // Auto-logout after 30 minutes of inactivity
+    let inactivityTimer;
+    
+    function resetInactivityTimer() {
+      clearTimeout(inactivityTimer);
+      inactivityTimer = setTimeout(() => {
+        if (document.getElementById('vault-dashboard').style.display !== 'none') {
+          alert('Session expired due to inactivity. Please login again.');
+          handleLogout();
+        }
+      }, 30 * 60 * 1000); // 30 minutes
+    }
+    
+    // Reset timer on user activity
+    document.addEventListener('mousemove', resetInactivityTimer);
+    document.addEventListener('keypress', resetInactivityTimer);
+    document.addEventListener('click', resetInactivityTimer);
+    
+    // Initialize timer
+    resetInactivityTimer();
+  </script>
+</body>
+</html>
